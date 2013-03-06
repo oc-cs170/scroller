@@ -16,12 +16,11 @@ class Scroller(object):
     """Create a game of Scroller."""
     def __init__(self):
         pygame.init()
+        pygame.key.set_repeat(10, 10)
         pygame.display.set_caption(WINDOW_TITLE)
 
         self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
                                               # pygame.FULLSCREEN)
-
-        pygame.key.set_repeat(10, 10)
 
         # Use a clock to control frame rate
         self.clock = pygame.time.Clock()
@@ -29,7 +28,7 @@ class Scroller(object):
         self.world = world.World()
         self.vp = [0, 0]
 
-        self.hero = hero.Hero(self.screen, self.world.image)
+        self.hero = hero.Hero(self.screen, self.world)
 
     def play(self):
         """Start Scroller program.

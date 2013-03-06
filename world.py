@@ -30,3 +30,6 @@ class World(object):
             for i in range(height):
                 self.image.blit(terrain, (x, base - (BLOCK_LOFFSET * i)))
                 self.image.blit(terrain, (x, base + BLOCK_VOFFSET - (BLOCK_LOFFSET * i)))
+
+    def get_rect(self):
+        return self.image.get_rect()
