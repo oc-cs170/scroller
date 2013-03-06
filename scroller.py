@@ -57,9 +57,9 @@ class Scroller(object):
                     running = False
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        self.vp = self.hero.move((-3, 0), self.vp)
+                        self.vp = self.hero.move((-13, 0), self.vp)
                     elif event.key == pygame.K_RIGHT:
-                        self.vp = self.hero.move((3, 0), self.vp)
+                        self.vp = self.hero.move((13, 0), self.vp)
 
             # Draw the scene
             self.screen.fill((0, 0, 0))
