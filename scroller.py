@@ -34,7 +34,6 @@ class Scroller(object):
         """Start Scroller program.
         """
 
-
         running = True
         while running:
             self.clock.tick(FPS)  # Max frames per second
@@ -46,13 +45,16 @@ class Scroller(object):
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
                         self.vp = self.hero.move((-13, 0), self.vp)
+                        # self.hero.update((-13, 0), self.vp)
                     elif event.key == pygame.K_RIGHT:
                         self.vp = self.hero.move((13, 0), self.vp)
+                        # self.hero.update((-13, 0), self.vp)
 
             # Draw the scene
             self.screen.fill((0, 0, 0))
             self.screen.blit(self.world.image, (-self.vp[0], self.vp[1]))
             self.screen.blit(self.hero.image, self.hero.rect)
+            self.hero.update((-13, 0), self.vp)
             pygame.display.flip()
 
 
