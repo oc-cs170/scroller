@@ -3,6 +3,9 @@ import random
 import pygame
 
 from parameters import *
+import decorations as dec
+
+CLOUDY = 0.3  # Cloud percentage
 
 
 class World(object):
@@ -16,6 +19,13 @@ class World(object):
         # Create a surface fill it with sky...
         self.image = pygame.Surface((WORLD_WIDTH, WINDOW_HEIGHT))
         self.image.fill((pygame.Color('Sky Blue')))
+
+        # Add decorations
+        for i in range(0, WORLD_WIDTH, 128):
+            if random.random() < CLOUDY:
+                height = random.randint(20, 200)
+                cloud = dec.new_cloud()
+                self.image.blit(cloud, cloud.get_rect(center=(i, height)))
 
         # ... then draw
         num_blocks = WORLD_WIDTH / BLOCK_HOFFSET + 1
