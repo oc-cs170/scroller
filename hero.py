@@ -31,6 +31,8 @@ class Hero(pygame.sprite.Sprite):
         else:
             pass   # A good place for a speech bubble (@$&^%!)
 
+        print self.rect
+
         if self.rect.centerx > self.srect.centerx:
             # Move the viewport
             diff = self.rect.centerx - self.srect.centerx
