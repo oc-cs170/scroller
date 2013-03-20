@@ -5,7 +5,7 @@ from parameters import *
 
 
 class Hero(pygame.sprite.Sprite):
-    def __init__(self, screen, world, png='Character Princess Girl.png'):
+    def __init__(self, screen, world, png='images/Character Princess Girl.png'):
         super(Hero, self).__init__()
 
         walk = os.listdir('walk')

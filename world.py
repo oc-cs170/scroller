@@ -11,9 +11,9 @@ CLOUDY = 0.3  # Cloud percentage
 class World(object):
     def __init__(self):
         # Load some art
-        self.dirt_block = pygame.image.load('Dirt Block.png').convert_alpha()
-        self.grass_block = pygame.image.load('Grass Block.png').convert_alpha()
-        self.stone_block = pygame.image.load('Stone Block.png').convert_alpha()
+        self.dirt_block = pygame.image.load('images/Dirt Block.png').convert_alpha()
+        self.grass_block = pygame.image.load('images/Grass Block.png').convert_alpha()
+        self.stone_block = pygame.image.load('images/Stone Block.png').convert_alpha()
         blocks = [self.dirt_block, self.grass_block, self.stone_block]
 
         # Create a surface fill it with sky...
