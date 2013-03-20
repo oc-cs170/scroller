@@ -28,8 +28,9 @@ class Hero(pygame.sprite.Sprite):
         self.velocity = [0, 0]
 
     def update(self):
-        self.index = (self.index + 1) % 11
-        self.image = self.images[self.index]
+        if self.velocity[0] and not self.velocity[1]:
+            self.index = (self.index + 1) % 11
+            self.image = self.images[self.index]
 
         # If we're above ground, gravity is in effect
         if self.rect.bottom < 681:
