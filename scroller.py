@@ -26,7 +26,6 @@ class Scroller(object):
         self.clock = pygame.time.Clock()
 
         self.world = world.World()
-        self.vp = [0, 0]
 
         self.hero = hero.Hero(self.screen, self.world)
 
@@ -45,13 +44,19 @@ class Scroller(object):
                     running = False
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        self.vp = self.hero.move((-13, 0), self.vp)
+                        self.hero.move([-13, 0])
                     elif event.key == pygame.K_RIGHT:
-                        self.vp = self.hero.move((13, 0), self.vp)
+                        self.hero.move([13, 0])
+                    elif event.key == pygame.K_SPACE:
+                        self.hero.jump(15)
+                if event.type == pygame.KEYUP:
+                    if event.key in (pygame.K_LEFT, pygame.K_RIGHT):
+                        self.hero.move((0, 0))
 
             # Draw the scene
             self.screen.fill((0, 0, 0))
-            self.screen.blit(self.world.image, (-self.vp[0], self.vp[1]))
+            self.screen.blit(self.world.image, (-self.world.vp[0], self.world.vp[1]))
+            self.hero.update()
             self.screen.blit(self.hero.image, self.hero.rect)
             pygame.display.flip()
 

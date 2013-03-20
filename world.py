@@ -41,5 +41,10 @@ class World(object):
                 self.image.blit(terrain, (x, base - (BLOCK_LOFFSET * i)))
                 self.image.blit(terrain, (x, base + BLOCK_VOFFSET - (BLOCK_LOFFSET * i)))
 
+        self.vp = [0, 0]
+
     def get_rect(self):
         return self.image.get_rect()
+
+    def set_viewport(self, vp):
+        self.vp = vp
